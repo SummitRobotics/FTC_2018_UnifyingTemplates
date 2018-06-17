@@ -21,13 +21,13 @@ public class StarterAutonomous extends LinearOpMode {
 
         waitForStart();
 
-        drive(robot, 2.0, 0.6);
-        turn(robot, 1.0, 0.5);
-        drive(robot, 1.5, -0.6);
-        turn(robot, .5, -0.5);
+        Drive drive = new Drive();
+
+        drive.moveFwd(2, 1);
+        drive.turnLeft(2,1);
     }
 
-    public void drive(StarterHardwareMap robot, double duration, double power) {
+    /*public void drive(StarterHardwareMap robot, double duration, double power) {
         if (power > 0.6) {
             power = 0.6;
         }
@@ -58,5 +58,4 @@ public class StarterAutonomous extends LinearOpMode {
         }
         robot.leftDrive.setPower(0);
         robot.rightDrive.setPower(0);
-    }
-}
+    */}
