@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @Autonomous
 public class StarterAutonomous extends LinearOpMode {
     StarterHardwareMap robot = new StarterHardwareMap();
-    private ElapsedTime period = new ElapsedTime();
+    public ElapsedTime gameTime = new ElapsedTime();
 
 
 
@@ -35,7 +35,7 @@ public class StarterAutonomous extends LinearOpMode {
             power = -0.6;
         }
 
-        while (period.seconds() < duration) {
+        while (gameTime.seconds() < duration) {
             robot.leftDrive.setPower(power);
             robot.rightDrive.setPower(power);
         }
@@ -52,7 +52,7 @@ public class StarterAutonomous extends LinearOpMode {
             power = -0.5;
         }
 
-        while (period.seconds() < duration) {
+        while (gameTime.seconds() < duration) {
             robot.leftDrive.setPower(power);
             robot.rightDrive.setPower(-power);
         }
