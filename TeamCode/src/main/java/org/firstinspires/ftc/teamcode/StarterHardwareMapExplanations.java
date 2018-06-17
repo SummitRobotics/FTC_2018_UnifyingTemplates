@@ -30,7 +30,7 @@ public class StarterHardwareMapExplanations {
     //If I did happen to get it right, you should still probably reword the explanation with your superior Java knowledge
     //TL;DR: Fix it please I don't know what I'm doing
 
-    //Constructor (this is just what it says in the example file, I don't know what's happening here either)
+    //Constructor (this is just what it says in the example file, I don't know what's happening here either)X
     public StarterHardwareMapExplanations() {
 
     }
@@ -65,5 +65,11 @@ public class StarterHardwareMapExplanations {
         //This sets both motors to run without encoders.  Encoders are largely used for autonomous, though do have some uses in TeleOp
         //Basically they're a more accurate way of tracking distance traveled, as opposed to time
         //Since we probably won't be using them immediately, I have them defaulted to off here, but when we do add them, just change "RUN_WITHOUT_ENCODER" to "RUN_WITH_ENCODER"
+
+        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        //This changes what the motors do when power = 0.
+        //In "Brake" mode, the motors will stop all forward movemement by applying a short burst of power in reverse, while in "Float" mode the robot will keep coasting with its forward momentum
+        //In my experience, "Brake" mode makes the robot feel more snappy or responsive.
     }
 }
