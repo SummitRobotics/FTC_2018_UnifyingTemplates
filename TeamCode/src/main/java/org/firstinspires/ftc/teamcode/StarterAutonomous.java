@@ -4,12 +4,15 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous
 @Disabled
 public class StarterAutonomous extends LinearOpMode {
     Drive driveClass = new Drive();
     StarterHardwareMap robot = new StarterHardwareMap();
+    ElapsedTime gameTime = new ElapsedTime();
+
 
     //Everything in this method tells the bot what it actually needs to do
     @Override
@@ -35,12 +38,12 @@ public class StarterAutonomous extends LinearOpMode {
 
         //These are the methods we're using to move the bot, you can see an explanation of them in the Drive class, but for now I'll just show what each of these would do
         //Drives forwards for 2 seconds at 0.6 power
-        driveClass.driveTime(2.0, 0.6);
+        driveClass.driveByTime(2.0, 0.6);
         //Turns right (clockwise) for 1 second at 0.5 power
-        driveClass.turnRightTime(1.0, 0.5);
+        driveClass.turnRightByTime(1.0, 0.5);
         //Drives backwards for 1.5 seconds at 0.6 power
-        driveClass.driveTime(1.5, -0.6);
+        driveClass.driveByTime(1.5, -0.6);
         //Turns left (counter clockwise) for 0.5 seconds at 0.5 power
-        driveClass.turnLeftTime(0.5, -0.5);
+        driveClass.turnLeftByTime(0.5, -0.5);
     }
 }
