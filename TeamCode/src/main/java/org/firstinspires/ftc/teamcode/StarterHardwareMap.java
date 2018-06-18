@@ -2,64 +2,74 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.util.ElapsedTime;
+
 
 //Created by Jamey, 11:57 PM, 6/13/18
-//NOTE TO AIDAN: I tried to write explanations for most everything here so the programmers can refer back to them if they wish to, or so we could refer to them for better thought-out explanations
-//These explanations were written with the idea that the programmers would have minimal to no Java knowledge, and that they would come to us for explanations on the finer details, if they wanted it
-//You probably have a much better understanding of everything that's going on here though, so feel free to change anything at your own discretion
+
 
 public class StarterHardwareMap {
+    //These are your instance variables of the HardwareMap. These variables will be created and used in your opMode, each variable represents a component on your robot.
+
     public DcMotor leftDrive;
     public DcMotor rightDrive;
-    //Here we're assigning variables to the DcMotor object so that we can later use them to initialize motors, servos, and anything else you need
-    //These variables should be named similarly to the motors, servos, etc. hooked up to the bot, as we're going to use them in conjunction with each other later
-    //You can add more motor variables exactly how you see it done above, and servo variables can be added through a similar process, but replacing "DcMotor" with "Servo"
-    //Without quotes, of course
-    //If you want to add any other types of device, but don't know how to, either ask Aidan or Jamey, or refer to the FTC documentation
+    //This creates a variable for your two motors (or both sides of motors if you have a 4 motor driveframe). If you're using more motors on your robot, create them here.
 
-    //NOTE TO AIDAN: I think it would be good to have them start out with a hardware map and an OpMode that simply have the basics to get a bot up and running and driving around
-    //As they add more to the bot, such as an arm and a claw, the programmers can go in and add those parts to the HWMap and the OpMode, with our help of course
-    //But the main idea is that it would help them get a better hands-on understanding of these classes instead of just copying and pasting them everywhere without really fully understanding them
-    //And it might make the programmers feel like they'e contributing more to the construction and progression of the bot, which is always good
 
     HardwareMap hwMap;
-    //Here we're assigning variable "hwMap" to be an object "HardwareMap", allowing us to use the variable hwMap in cases meant for HardwareMap objects
-    //If that explanation went over your head, don't worry about this too much, but if you really do want to know more, just ask Aidan or Jamey
+    //Here we're creating an empty hardwareMap object, to intialize our hardware map.
 
-    //NOTE TO AIDAN: I have no idea if I used the right terms to explain this, or if this is even what this is doing
-    //If I did happen to get it right, you should still probably reword the explanation with your superior Java knowledge
-    //TL;DR: Fix it please I don't know what I'm doing
+    boolean isEncoderInUse;
+    //This true or false statement will be used to tell the hardware map whether to
 
-    //Constructor (this is just what it says in the example file, I don't know what's happening here either)X
-    public StarterHardwareMap() {
+    //This is the constructor for your hardware map. A constructor is the code that runs when you create an "object" of the class (See StarterAutonomous.java for an example of when we make an object of this hardware map)
+    //In short, this is the method that actually makes it so we can call the hardwareMap in other classes.
+    //Inside this constructor, we have a boolean (true/false statement) variable "encoders" When this object is called in another class, you will tell the object if encoders are being used (true) or not (false)
+    //It will then take whatever your input was and save it to the "isEncoderInUse" instance variable.
+    // I recommend googling "What is a constructor java" for more info.
+    public StarterHardwareMap(boolean encoders) {
+
+        isEncoderInUse = encoders;
 
     }
 
-    //Here we're creating the method that we're actually going to use in other OpModes to help set everything up.  This is where the convenience of hardware maps comes in
-    //When setup correctly, simply calling this method will get everything ready, saving tons of space, making everything look clean, and hopefully impressing judges with your understanding of Java
+    //Here we're creating the method that we use in other OpModes to help set everything up.  This is where the convenience of hardware maps comes in
+    //When setup correctly, simply calling this method will get everything ready, saving tons of space and making everything look clean.
     public void init(HardwareMap ahwMap) {
-        //Saves the HardwareMap reference to the "hwMap" variable, which is of the "HardwareMap" object
-        //If you'd like a better explanation on exactly what that means, then ask Aidan or Jamey about it, but it's not too big a deal
+        //Remember that empty hardwareMap object? This takes whatever you've passed to this init method and passes it into our previously blank hardware map.
         hwMap = ahwMap;
+        //In general, you'll be passing "hardwareMap" into hardwareMap. This may seem redundant, but it keeps the hardware map in this class and the one being reference by this init method on the same page.
 
-        //After you do that, you can start defining and initializing all you motors, servos, etc.
+        //After you do that, you can start initializing all you motors, servos, etc, and giving them a reference to the actual component that you hopefully put on the config file on the phone.
         //This is where the variables we created earlier come into play.  Each of those variables have to be assigned to the corresponding motor or servo on the bot
         leftDrive = hwMap.get(DcMotor.class, "left_drive");
         rightDrive = hwMap.get(DcMotor.class, "right_drive");
-        //One thing we need to keep in mind is that, for this hardware map to work, we need to have a streamlined naming system
-        //Motors on the left side of our bot need to be named "left_drive" and motors on the right side need to be named "right_drive"
+        //One thing we need to keep in mind is that, for this hardware map to work, the names have to be consistent.
+        //Motors on the left side of our bot need to be named "left_drive" and motors on the right side need to be named "right_drive" in the hardware configuration on the phone.
         //Without quotes, of course
         //If the electronics on your bot aren't named the same way they're named here, everything will break and you will have a bad time
+
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         //You will also need to reverse one motor on the bot due to the fact that, when you attach the motors to each side, both sides will be flipped relevant to each other
         //This means that, inevitably, on side would be backwards
-        //This specific setup is for AndyMark motors, since I'm pretty sure that's what we're using.  If not, just change "leftDrive" to "rightDrive"
+        //This specific setup is for AndyMark motors.  If your robot is still going backwards instead of forwards, just change "leftDrive" to "rightDrive"
 
         leftDrive.setPower(0);
         rightDrive.setPower(0);
         //This is simple, all we're doing is setting the power of both the motors to 0 just in case
         //You don't need to do this with other electronics to my knowledge, though you will have to set a start point for servos.  If you want to do this, but don't know how, just ask Aidan or Jamey
+
+        if(isEncoderInUse == true){
+            leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+            leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            rightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        }
+        else if(isEncoderInUse == false){
+            leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+            rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        }
+        else{}
 
         leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);

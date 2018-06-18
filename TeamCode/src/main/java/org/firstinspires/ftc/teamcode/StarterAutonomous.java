@@ -9,23 +9,30 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @Autonomous
 @Disabled
 public class StarterAutonomous extends LinearOpMode {
+
+    //These are your instance variables. They're declared before any methods and can be accessed by any part of this class.
+
+    //Creates an object of the Drive class, which allows us to use the methods declared there to drive the robot. See "Drive.java" for more details.
     Drive driveClass = new Drive();
-    StarterHardwareMap robot = new StarterHardwareMap();
+    //Calls the hardware map for your robot. See "StarterHardwareMap.java" for more info.
+    //If your're using a hardware map that isn't the starter one, change "StarterHardwareMap" to the name of your hardware map class in both places in this statement.
+    //The "encoders: false" parameter indicates whether encoders are being used or not. Change it to "true" if you are using encoders in this opMode.
+    StarterHardwareMap robot = new StarterHardwareMap(false);
+    //This object tracks how long the opMode has been running.
     ElapsedTime gameTime = new ElapsedTime();
 
 
-    //Everything in this method tells the bot what it actually needs to do
+    //This method is the instructions to your robot. Everything in this method is what actually runs when you start your robot.
+    //Because this opMode is linear, it will take all the instructions in this method and run through them step-by-step. Once it reaches the end of the method, the robot will stop.
     @Override
     public void runOpMode() {
-        //This initializes the hardware map, which just gets all the electronics setup on our bot
+        //This calls the hardware map, which will initialize all the hardware on the robot as objects in the code.
         robot.init(hardwareMap);
+
         robot.leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         robot.rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //This sets both motors to run without encoders, and should be done at the star of every OpMode that doesn't require the use of encoders
-        //Encoders are largely used for autonomous, though do have some uses in TeleOp
-        //Basically they're a more accurate way of tracking distance traveled, as opposed to time
-        //In the case that you're making a class where you are using encoders, just change "RUN_WITHOUT_ENCODER" to "RUN_WITH_ENCODER"
-        //You should also make sure to reset the encoders before activating them by using "STOP_AND_RESET_ENCODER"
+
 
         //This puts a message in the log on the phone that shows that the bot got up and running probably and is ready to go
         telemetry.addData("Status", "Ready to run.");
