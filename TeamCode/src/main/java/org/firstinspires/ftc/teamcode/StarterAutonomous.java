@@ -33,46 +33,6 @@ public class StarterAutonomous extends LinearOpMode {
         //This is forcing the bot to wait for someone to press the start button on the phone before it can move on to the rest of the method
         waitForStart();
 
-<<<<<<< HEAD
-        Drive drive = new Drive();
-
-        drive.moveFwd(2, 1);
-        drive.turnLeft(2,1);
-    }
-
-    /*public void drive(StarterHardwareMap robot, double duration, double power) {
-        if (power > 0.6) {
-            power = 0.6;
-        }
-        if (power < -0.6) {
-            power = -0.6;
-        }
-
-        while (gameTime.seconds() < duration) {
-            robot.leftDrive.setPower(power);
-            robot.rightDrive.setPower(power);
-        }
-        robot.leftDrive.setPower(0);
-        robot.rightDrive.setPower(0);
-    }
-
-    //When calling this statement, set "power" double to positive for right (clockwise) turn and negative for left (counter clockwise) turn
-    public void turn(StarterHardwareMap robot, double duration, double power) {
-        if (power > 0.5) {
-            power = 0.5;
-        }
-        if (power < -0.5) {
-            power = -0.5;
-        }
-
-        while (gameTime.seconds() < duration) {
-            robot.leftDrive.setPower(power);
-            robot.rightDrive.setPower(-power);
-        }
-        robot.leftDrive.setPower(0);
-        robot.rightDrive.setPower(0);
-    */}
-=======
         //These are the methods we're using to move the bot, you can see an explanation of them in the Drive class, but for now I'll just show what each of these would do
         //Drives forwards for 2 seconds at 0.6 power
         driveClass.driveTime(2.0, 0.6);
@@ -84,4 +44,3 @@ public class StarterAutonomous extends LinearOpMode {
         driveClass.turnLeftTime(0.5, -0.5);
     }
 }
->>>>>>> experimental
