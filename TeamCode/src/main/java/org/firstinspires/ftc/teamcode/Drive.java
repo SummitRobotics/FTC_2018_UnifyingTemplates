@@ -1,8 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
-public class Drive {
+import com.qualcomm.robotcore.util.ElapsedTime;
 
-    StarterAutonomous AutoOpMode = new StarterAutonomous();
+public class Drive {
+    private ElapsedTime gameTime = new ElapsedTime();
     StarterHardwareMap robot = new StarterHardwareMap();
     //I'm too tired to make up a bs explanation for this stuff right now so do it for me Aidan
 
@@ -11,19 +12,19 @@ public class Drive {
     //This method, for example, only needs two values: "time" and "power", so, when calling it, all I would have to write is something like:
     // drive(3.0, 0.6);
     //Which would make the robot move forwards at 0.6 power for 3 seconds
-    public void drive(double time, double power){
-        time += AutoOpMode.gameTime.seconds();
+    public void driveTime(double time, double power){
+        time += gameTime.seconds();
         //This is more for convenience than anything
         //I won't get too into the logic here, but basically all you need to know is it makes setting the time a lot easier
 
-        while(AutoOpMode.gameTime.seconds() <= time){
+        while(gameTime.seconds() <= time){
             robot.leftDrive.setPower(power);
             robot.rightDrive.setPower(power);
         }
         //This is what makes the robot move.  We're doing this using a "while" loop
         //While loops work similarly to if statements, when the code comes across them, it checks if the conditions are true, and, if they are, it runs the statement
         //The only difference is, once the statement has been run, it'll go back to the top and check if the conditions are true again and will keep doing so until they are false
-        //Once the conditions are false it exits the while loop and moves on to the next thing, which, in this case, is exiting the method
+        //Once the conditions are false it exits the while loop and moves on to the next thing
         //Inside the while loop, the motor power for both motors are being set to the inputted power
         //This also means that we can use this function to move the bot backwards as well, if we wish to
         //We just have to place a negative number for the power when calling it
@@ -34,10 +35,10 @@ public class Drive {
 
     //These other two methods methods are fundamentally the same as the first one
     //The main difference is that one of the motors is set to the negative of the inputted power value, allowing the bot to turn on the spot
-    public void turnLeft(double time, double power){
-        time += AutoOpMode.gameTime.seconds();
+    public void turnLeftTime(double time, double power){
+        time += gameTime.seconds();
 
-        while(AutoOpMode.gameTime.seconds() <= time){
+        while(gameTime.seconds() <= time){
             robot.leftDrive.setPower(-power);
             robot.rightDrive.setPower(power);
         }
@@ -49,10 +50,10 @@ public class Drive {
     //You'd just have to remember which direction requires a negative power number and which requires a positive
     //For example, if I were to call turnRight but set the power to -0.5, the bot would instead turn left
     //If you do opt for that method, one thing I would recommend is to always have a comment above your method saying which is which
-    public void turnRight(double time, double power){
-        time += AutoOpMode.gameTime.seconds();
+    public void turnRightTime(double time, double power){
+        time += gameTime.seconds();
 
-        while(AutoOpMode.gameTime.seconds() <= time){
+        while(gameTime.seconds() <= time){
             robot.leftDrive.setPower(power);
             robot.rightDrive.setPower(-power);
         }

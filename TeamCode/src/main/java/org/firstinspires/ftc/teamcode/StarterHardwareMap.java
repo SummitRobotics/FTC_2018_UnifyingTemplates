@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 //Created by Jamey, 11:57 PM, 6/13/18
 //NOTE TO AIDAN: I tried to write explanations for most everything here so the programmers can refer back to them if they wish to, or so we could refer to them for better thought-out explanations
@@ -59,12 +60,6 @@ public class StarterHardwareMap {
         rightDrive.setPower(0);
         //This is simple, all we're doing is setting the power of both the motors to 0 just in case
         //You don't need to do this with other electronics to my knowledge, though you will have to set a start point for servos.  If you want to do this, but don't know how, just ask Aidan or Jamey
-
-        leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        //This sets both motors to run without encoders.  Encoders are largely used for autonomous, though do have some uses in TeleOp
-        //Basically they're a more accurate way of tracking distance traveled, as opposed to time
-        //Since we probably won't be using them immediately, I have them defaulted to off here, but when we do add them, just change "RUN_WITHOUT_ENCODER" to "RUN_WITH_ENCODER"
 
         leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
