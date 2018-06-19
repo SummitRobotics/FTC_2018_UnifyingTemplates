@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous
 @Disabled
-public class StarterAutonomous extends LinearOpMode {
+public class StarterAutonomousTimeDrive extends LinearOpMode {
 
     Drive driveClass = new Drive();
     StarterHardwareMap robot = new StarterHardwareMap(false);
