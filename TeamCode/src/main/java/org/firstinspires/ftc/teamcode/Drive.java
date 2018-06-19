@@ -9,7 +9,7 @@ public class Drive {
     StarterAutonomous opMode = new StarterAutonomous();
 
     //This creates an instance of your hardware map, which is in the "StarterHardwareMap.java" class. See there for more info.
-    StarterHardwareMap robot = new StarterHardwareMap();
+    StarterHardwareMap robot = new StarterHardwareMap(false);
 
 
     //These are the methods used in your autonomous op mode to make the robot drive
