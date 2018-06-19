@@ -19,6 +19,7 @@ public class StarterTeleop extends LinearOpMode {
     private ElapsedTime gameTime = new ElapsedTime();
     //Here we're calling the hardware map of the robot. This will allow our code to access the individual parts (motors, servos, other electronics) of the robot, which will be represented as objects.
     //We want encoders to be running, since under teleop control encoders can be used to make sure all motors are in sync
+    //If your motors don't have encoders on them (or they're not plugged in), change encoders to "false".
     StarterHardwareMap robot = new StarterHardwareMap(true);
 
     @Override

@@ -29,11 +29,6 @@ public class StarterAutonomous extends LinearOpMode {
         //This calls the hardware map, which will initialize all the hardware on the robot as objects in the code.
         robot.init(hardwareMap);
 
-        robot.leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        robot.rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        //This sets both motors to run without encoders, and should be done at the star of every OpMode that doesn't require the use of encoders
-
-
         //This puts a message in the log on the phone that shows that the bot got up and running probably and is ready to go
         telemetry.addData("Status", "Ready to run.");
         telemetry.update();

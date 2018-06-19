@@ -70,6 +70,9 @@ public class StarterHardwareMap {
             rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         }
         else{}
+        //If, when this hardware map is called, encoders is set to true, then the motors' run mode will be set to "run using encoders" and the encoders will be reset to 0.
+        //Else, if it was set to false, the motors will run without encoders.
+        //If neither of these statements are true, nothing will happen (though this will probably break the opMode.)
 
         leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
