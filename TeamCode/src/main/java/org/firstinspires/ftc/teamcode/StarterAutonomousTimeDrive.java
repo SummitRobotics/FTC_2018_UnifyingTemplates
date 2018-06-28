@@ -21,12 +21,6 @@ public class StarterAutonomousTimeDrive extends LinearOpMode {
 
         robot.init(hardwareMap);
 
-        robot.leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        robot.rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
-
-
-
         telemetry.addData("Status", "Ready to run.");
         telemetry.update();
 
