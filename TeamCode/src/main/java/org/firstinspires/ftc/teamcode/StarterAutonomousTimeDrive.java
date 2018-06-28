@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @Disabled
 public class StarterAutonomousTimeDrive extends LinearOpMode {
 
-    Drive driveClass = new Drive();
+    DriveByTime driveByTime = new DriveByTime();
     StarterHardwareMap robot = new StarterHardwareMap(false);
     ElapsedTime gameTime = new ElapsedTime();
 
@@ -32,9 +32,9 @@ public class StarterAutonomousTimeDrive extends LinearOpMode {
 
         waitForStart();
 
-        driveClass.driveByTime(2.0, 0.6);
-        driveClass.turnRightByTime(1.0, 0.5);
-        driveClass.driveByTime(1.5, -0.6);
-        driveClass.turnLeftByTime(0.5, -0.5);
+        driveByTime.driveByTime(2.0, 0.6);
+        driveByTime.turnRightByTime(1.0, 0.5);
+        driveByTime.driveByTime(1.5, -0.6);
+        driveByTime.turnLeftByTime(0.5, -0.5);
     }
 }
