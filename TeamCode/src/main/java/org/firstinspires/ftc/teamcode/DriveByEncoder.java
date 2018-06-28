@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 public class DriveByEncoder {
 
     StarterAutonomousEncoderDrive opMode = new StarterAutonomousEncoderDrive();
-    StarterHardwareMap robot = new StarterHardwareMap();
+    StarterHardwareMap robot = new StarterHardwareMap(true);
 
     //Measure the distance from the front wheel axel to the rear wheel axel for 4WD
     private static final double robotLength = 18;
