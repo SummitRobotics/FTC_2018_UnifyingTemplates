@@ -6,10 +6,11 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
+
 @TeleOp
 public class StarterTeleop extends LinearOpMode {
     private ElapsedTime gameTime = new ElapsedTime();
-    StarterHardwareMap robot = new StarterHardwareMap();
+    StarterHardwareMap robot = new StarterHardwareMap(true);
 
     @Override
     public void runOpMode() {
@@ -44,7 +45,7 @@ public class StarterTeleop extends LinearOpMode {
 
             robot.leftDrive.setPower(leftPower);
             robot.rightDrive.setPower(rightPower);
-            //And finally, after the calculations and the clips, this is where we set the motor powers to what they need to be. Overall it's pretty simple
+            //And finally, after the calculations and the clips, this is where we set the motor powers to what they need to be.
         }
     }
 }
