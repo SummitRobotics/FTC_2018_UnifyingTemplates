@@ -22,7 +22,7 @@ public class StarterTeleop extends LinearOpMode {
 
         waitForStart();
         gameTime.reset();
-        //Everything that just happened is basically explained in the StarterAutonomous class, so go there if you need an explanation
+        //Everything that just happened is explained in the StarterAutonomous class, so go there if you need an explanation
 
         //This while loop makes sure the car can only move while the OpMode is active, so that, if you press the stop button, it'll stop moving
         while (opModeIsActive()) {
