@@ -19,7 +19,7 @@ public class StarterHardwareMap {
     //Here we're creating an empty hardwareMap object, to intialize our hardware map.
 
     boolean isEncoderInUse;
-    //This true or false statement will be used to tell the hardware map whether to
+    //This true or false statement will be used to tell the hardware map whether to enable encoders or not.
 
     //This is the constructor for your hardware map. A constructor is the code that runs when you create an "object" of the class (See StarterAutonomous.java for an example of when we make an object of this hardware map)
     //In short, this is the method that actually makes it so we can call the hardwareMap in other classes.
@@ -58,6 +58,10 @@ public class StarterHardwareMap {
         //This is simple, all we're doing is setting the power of both the motors to 0 just in case
         //You don't need to do this with other electronics to my knowledge, though you will have to set a start point for servos.  If you want to do this, but don't know how, just ask Aidan or Jamey
 
+        //This if-else statement tells the robot whether to enable encoders or not.
+        //If, when the hardware map is called, encoders are set to true, the motors will be told to run using encoders and will start the encoders at 0.
+        //If it's set to false, the motors will run without encoders.
+        //If there's no input, nothing will be done (In future, this should throw an error
         if(isEncoderInUse == true){
             leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
