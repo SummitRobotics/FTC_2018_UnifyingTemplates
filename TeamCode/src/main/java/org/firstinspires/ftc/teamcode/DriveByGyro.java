@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 //TODO
 public class DriveByGyro {
-
+/*
     public void rotateToAngle(double angle, double power){
 
     }
@@ -21,5 +21,5 @@ public class DriveByGyro {
 
     public double getRoll(){
 
-    }
+    }*/
 }
