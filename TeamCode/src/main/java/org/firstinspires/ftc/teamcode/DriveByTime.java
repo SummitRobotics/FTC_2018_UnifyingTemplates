@@ -6,7 +6,7 @@ public class DriveByTime {
     //Here, we're calling the OpMode which we plan to use this class in
     //TODO - Make so "DriveByTime" class can be called by multiple opModes
     StarterAutonomousTimeDrive opMode = new StarterAutonomousTimeDrive();
-    //We're also calling the hardware map so this class has accsess to the motors.
+    //We're also calling the hardware map so this class has access to the motors.
     //Because time driving doesn't require the use of encoders, we set encoders to false when calling the hardwareMap
     StarterHardwareMap robot = new StarterHardwareMap(false);
 

@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
-//These are classes from the FTC offical code that we "import" to make our code actually work with the robot.
+//These are classes from the FTC official code that we "import" to make our code actually work with the robot.
 //Here, we're grabbing the class that allows us to indicate that this is an "Autonomous" opMode, a class that gives us the features of a LinearOpMode (explained below), and one that acts as a timer for the match.
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -34,12 +34,12 @@ public class StarterAutonomousEncoderDrive extends LinearOpMode {
         //As soon as start is pressed, the timer will "reset", so that it's time is the same as the time since the opMode was started.
         gameTime.reset();
 
-        // These are the instructions that the robot completes during the match. For more information about how these methods work, see "DriveByEncoder.java"
+        //These are the instructions that the robot completes during the match. For more information about how these methods work, see "DriveByEncoder.java"
         //Robot will drive forward for 5 inches at 0.75 power.
         drive.driveByEncoder(5,5,0.75);
         //Robot will rotate 90 degrees clockwise at 0.5 power.
         drive.rotateByEncoder(90, 0.5);
-        //Robot will drive forward for 12 inches at full power.
+        //Robot will drive forward for 10 inches at full power.
         drive.driveByEncoder(10, 10, 1);
     }
 }
